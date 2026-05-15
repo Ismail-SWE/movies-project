@@ -7,17 +7,25 @@ import MoviesAddForm from "../movies-add-form/movies-add-form";
 import "./app.css";
 
 const App = () => {
+
+  const data = [
+    {name: 'Empire of Osman', viewers: 988, favourite: false,  id:1},
+    {name: 'Ertugrul', viewers: 789, favourite: false, id: 2},
+    {name: 'Osman', viewers: 1091, favourite: true, id: 3},
+  ];
+
   return (
     <div className="app font-monospace">
       <div className="content">
-        <AppInfo />
+        <AppInfo/>
 
         <div className="search-panel">
           <SearchPanel />
           <AppFilter />
         </div>
 
-        <MovieList/>
+        <MovieList data ={data} />
+        {/* datani pass qildim keyingi compga */}
         <MoviesAddForm/>
       </div>
     </div>
@@ -25,3 +33,4 @@ const App = () => {
 };
 
 export default App;
+
