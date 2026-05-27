@@ -4,7 +4,7 @@ import { createContext, useReducer} from "react";
 const initialValue = {
     data: [],
     term: '',
-    filter: ""
+    filter: "all"
 }
 
 export const Context = createContext();
@@ -12,9 +12,22 @@ export const Context = createContext();
 const reducer = (state = initialValue, action) => {
     const {type, payload} = action   // action bu object ichida type va payload bor.
     switch(type){
-        case 'ON_DELETE' : 
+        case 'GET_DATA': 
+            return {...state, data: payload}
+        case 'ON_DELETE' : {
             const deleteArr = state.data.filter(c => c.id !== payload)
+        }
             return {...state, data: deleteArr}
+        case 'ON_TOGGLE_PROP': {
+            const {id, prop} = payload
+            const toggleArr = state.data.map(item => {
+               if(item.id === id){
+                return { ...item, [prop]: !item[prop]}
+                }
+               return item
+             })
+             return {...state, data: toggleArr}   
+            }      
         default: 
           return {state}
     }
