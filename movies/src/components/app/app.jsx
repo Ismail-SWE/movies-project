@@ -8,39 +8,12 @@ import MoviesAddForm from "../movies-add-form/movies-add-form";
 import { v4 as uuidv4 } from "uuid";
 import { Context } from "../context";
 
-import { filterHandler, searchHandler } from '../../utilities/data'
-
 import "./app.css";
 
 const App = ()=>{
-  const [data, setData] = useState([]);
-
-  const [term, setTerm] = useState('')
-  const [filter, setFilter] = useState('all')
   const [isLoading, setIsLoading] = useState(false);
 
-  const {state, dispatch} = useContext(Context)
-  
-  
-  const addForm = item => {
-    const newItem = {name: item.name, viewers: item.viewers, id: uuidv4(), favourite: false, like: false}
-    const newArr = [...data, newItem]
-    setData(newArr)
-  }
-
-  const onToggleProp = (id, prop) => {
-    const newArr = data.map(item => {
-      if(item.id === id){
-        return { ...item, [prop]: !item[prop]}
-      }
-      return item
-    })
-    setData(newArr)
-  }
-
-  const updateTermHandler = term => setTerm(term)
-
-  const updateFilterHandler = filter => setFilter(filter)
+  const {dispatch} = useContext(Context)
 
   useEffect(()=> {
     setIsLoading(true)
@@ -65,15 +38,15 @@ const App = ()=>{
   return (
     <div className="app font-monospace">
       <div className="content">
-        <AppInfo allMoviesCount= {data.length} favouriteMovieCount = {data.filter(c => c.favourite).length}/>
+        <AppInfo/>
 
         <div className="search-panel">
-          <SearchPanel updateTermHandler = {updateTermHandler} />
-          <AppFilter  filter = {filter} updateFilterHandler = {updateFilterHandler} />
+          <SearchPanel/>
+          <AppFilter />
         </div>
         {isLoading && 'Loading...'}
         <MovieList/>
-        <MoviesAddForm addForm = {addForm} />
+        <MoviesAddForm/>
       </div>
     </div>
   )
