@@ -221,9 +221,9 @@ default: return state
 ### AI Collaboration
 
 - **Tool:** Claude (Anthropic)
-- **How:** Used throughout the project for debugging runtime errors, understanding React concepts (useReducer, Context, dispatch), and reviewing component structure
-- **What worked well:** Pasting error screenshots and code snippets allowed instant identification of bugs — missing imports, wrong return values in reducers, incorrect file paths, and scope issues in switch/case were all caught quickly
-- **What didn't:** Some bugs (like `{state}` vs `state` in the reducer default case) required multiple rounds because the error was subtle and easy to overlook visually
+- **How:** Used occasionally to double-check concepts like `useReducer` and `Context` API while building the project independently
+- **What worked well:** Helpful for quickly looking up syntax when stuck — similar to using documentation or Stack Overflow
+- **What didn't:** For real understanding, actually writing and breaking the code yourself is irreplaceable — AI explanations alone don't build muscle memory
 
 ---
 
