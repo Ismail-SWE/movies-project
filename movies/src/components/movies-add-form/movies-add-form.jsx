@@ -33,8 +33,3 @@ const MoviesAddForm = ({addForm}) => {
 
 export default MoviesAddForm;
 
-//demak, user yozadi changeHandler input ishga tushadi va valuelarni olib name va viewsga ya'ni statega saqlab turadi
-//  o'zidagi setState orqali yangilab
-
-// submit bo'lgan vaqti ishga tushadi addFormHandler va u ichidan propsdan app.jsx yuborgan addForm functionni oladi
-// va unga stateda saqlab turilgan name va viewerslardagi qiymatlarni qo'shadi va yangilaydi yozib bo'lingan input ichini tozalab

@@ -61,12 +61,11 @@ const App = ()=>{
   const updateFilterHandler = filter => setFilter(filter)
 
   useEffect(()=> {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsLoading(true)
     fetch('https://jsonplaceholder.typicode.com/todos?_start=0&_limit=5')
-    .then(response => response.json())   //json formatdan array of objectsga aylantirib pasga jsonga uzatadi
-    .then(json => {                      // bu yerda 5 tasini aylantirib ulardan 
-      const newArr = json.map(item => ({ //yangi object yarat va jsondan tashab berilgan objectdagi qiymatlarni ishlat
+    .then(response => response.json())  
+    .then(json => {                      
+      const newArr = json.map(item => ({ 
         name: item.title, 
         id: item.id,
         viewers: item.id * 10,
