@@ -36,6 +36,11 @@ Users should be able to:
 - Delete movies from the list
 - Toggle movie properties (favourite, like)
 
+### Links
+
+- Solution URL: (https://github.com/Ismail-SWE/movies-project)
+- Live Site URL: (https://ismail-swe.github.io/movies-project/)
+
 ### Features
 
 - Global state management with `useContext` + `useReducer`
